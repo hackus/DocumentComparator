@@ -13,7 +13,7 @@ Description:
 Supported file extensions:
 	pdf
 
-How to
+How to:
 
 	Make sure you have jre(from 1.5 and above) installed .
 	
@@ -71,8 +71,8 @@ How to
 					 
 				a) Create the <fileName>.map.txt
 				
-			 	b) Define keys for each dinamically changed string values from the pdf file. 
-						-dinamically changed values are those that vary in different versions of the "<fileName>.pdf" file.
+			 	b) Define keys for each dynamically changed string values from the pdf file. 
+						-dynamically changed values are those that vary in different versions of the "<fileName>.pdf" file.
 					
 						for example company name, dates, any other identifiable changeable elements that may appear
 						
@@ -97,9 +97,3 @@ How to
 				b) execute "compareByTemplate.vbs", it will automatically display a message box with the differences or "No data found!" if the files are identical.
 				
 				Note: the differences would be available in: "ComparisonDetailsLog.txt"
-				
-	
- 
-
-
-				
