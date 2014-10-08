@@ -23,8 +23,8 @@ Function CompareByTemplate(ByVal executionType, ByVal docName, ByVal templateNam
 						  " -map " &_
 						  keysMap
 						  
-	'Call WScript.Echo(strRun)
-	Return = WshShell.Run(strRun, 0, true)
+	Call WScript.Echo(strRun)
+	'Return = WshShell.Run(strRun, 0, true)
 	'Set oExec = WshShell.Exec(strRun)
 	
 	'Do While oExec.Status = 0
