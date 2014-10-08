@@ -81,9 +81,9 @@ How to
 				Example of map file: 
 					
 					
-					<h3><key_CompanyName>:_:ENTCS</h3>
-					<h3><key_MyUserName>:_:myuserid@mydept.myinst.myedu</h3>
-					<h3><key_CoUserName>:_:couserid@codept.coinst.coedu</h3>
+					<key_CompanyName>:_:ENTCS
+					<key_MyUserName>:_:myuserid@mydept.myinst.myedu
+					<key_CoUserName>:_:couserid@codept.coinst.coedu
 												
 												
 			4. When the map file is ready and the values in the template file are replaced with the keys the tool is ready to validate any documents of the same type.   
@@ -99,7 +99,7 @@ How to
 				Note: the differences would be available in: "ComparisonDetailsLog.txt"
 				
 	
-		You can find me on linkedin: 
+ 
 
 
 				
