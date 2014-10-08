@@ -48,6 +48,14 @@ public class FileUtils {
 		return tokens[0];
 	}
 	
+	
+	public static String getFileName(String filePath)
+	{
+		String fileName = new File(filePath).getName();
+		
+		return fileName;
+	}
+	
 	public static String getFileFolder(String fileName)
 	{
 //		String filePath = "";
@@ -71,7 +79,7 @@ public class FileUtils {
 		//Log.getInstance().write("Template path is:["+templatePath+"]");
 		
 		return templatePath;
-	}
+	}	
 	
 	public static String getKeysMapFilePath(String filePath)
 	{

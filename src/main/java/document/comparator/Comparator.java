@@ -21,9 +21,15 @@ import document.comparator.utils.FileUtils;
 public class Comparator {
 	
 	public void compareByTemplate(String filePath, String templateFilePath, String keysMapFilePath)
-	{
-		String templatePath = FileUtils.getTemplateFilePath(filePath);
-		String keysMapPath = FileUtils.getKeysMapFilePath(filePath);
+	{		
+//		String templatePath = FileUtils.getTemplateFilePath(filePath);
+//		String keysMapPath = FileUtils.getKeysMapFilePath(filePath);
+//		
+		
+		String templatePath = templateFilePath;
+		String keysMapPath = keysMapFilePath;
+		
+		
 		
 //		String templatePath = templateFilePath;
 //		String keysMapPath = keysMapFilePath;
