@@ -15,7 +15,7 @@ import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 
 import document.comparator.log.Log;
-import document.comparator.utils.FileDocument;
+import document.comparator.utils.Document;
 import document.comparator.utils.FileUtils;
 
 
@@ -227,7 +227,7 @@ public class MainApp
 
 	public static void generateDocTemplate(String filePath)
 	{	
-		FileDocument doc = new FileDocument(filePath);
+		Document doc = new Document(filePath);
 
 		String templateName = FileUtils.getTemplateFilePath(filePath);//FileUtils.getFileNameWithoutExtension(filePath) + ".template.txt";
 

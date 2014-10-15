@@ -10,8 +10,7 @@ import difflib.DiffAlgorithm;
 import difflib.DiffUtils;
 import difflib.Patch;
 import document.comparator.log.Log;
-import document.comparator.template.DocumentTemplate;
-import document.comparator.utils.FileDocument;
+import document.comparator.utils.Document;
 import document.comparator.utils.FileUtils;
 
 /**
@@ -34,13 +33,13 @@ public class Comparator {
 //		String templatePath = templateFilePath;
 //		String keysMapPath = keysMapFilePath;
 		
-		FileDocument doc = new FileDocument(filePath);
-		DocumentTemplate template = new DocumentTemplate(templatePath);
-		FileDocument keysmap = new FileDocument(keysMapPath);
+		Document doc = new Document(filePath);
+		Document template = new Document(templatePath);
+		Document keysmap = new Document(keysMapPath);
 				
 		String validationFilePath = doc.generateDocValidationFile();
 		
-		FileDocument validationDoc = new FileDocument(validationFilePath);
+		Document validationDoc = new Document(validationFilePath);
 		
 		List<String> file1AsStringList = validationDoc.getLines();
 		
@@ -56,8 +55,8 @@ public class Comparator {
 	
 	public void compareByLines(String filePath1, String filePath2)
 	{	
-		FileDocument doc1 = new FileDocument(filePath1);
-		FileDocument doc2 = new FileDocument(filePath2);
+		Document doc1 = new Document(filePath1);
+		Document doc2 = new Document(filePath2);
 		
 		List<String> file1AsStringList = doc1.getLines();
 		List<String> file2AsStringList = doc2.getLines();
@@ -74,8 +73,8 @@ public class Comparator {
 	{
 		if(pagesMap.equals(""))
 		{
-			FileDocument doc1 = new FileDocument(filePath1);
-			FileDocument doc2 = new FileDocument(filePath2);
+			Document doc1 = new Document(filePath1);
+			Document doc2 = new Document(filePath2);
 					
 			Log.getInstance().write("First document ["+filePath1+"] pages count is ["+doc1.getAllPages().size()+"] "
 								+ "\r\n"

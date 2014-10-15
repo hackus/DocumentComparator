@@ -15,7 +15,7 @@ Supported file extensions:
 
 How to:
 
-	Make sure you have jre(from 1.5 and above) installed .
+	Make sure you have jre(from 1.5 and above) installed.
 	
 		Windows:
 		
