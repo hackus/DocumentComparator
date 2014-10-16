@@ -1,7 +1,7 @@
 /**
  * 
  */
-package document.comparator.utils;
+package com.comparator.document;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,14 +17,14 @@ import org.apache.commons.lang.NotImplementedException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
 
-import document.comparator.log.Log;
+import com.comparator.log.Log;
 
 
 /**
  * @author Mircea Sirghi
  *
  */
-public class FileUtils {
+public class DocumentUtils {
 	
 	public static String templateFileName = "template";
 	public static String keysMapFileName = "map";
@@ -74,7 +74,7 @@ public class FileUtils {
 	
 	public static String getTemplateFilePath(String filePath)
 	{
-		String templatePath = getFileFolder(filePath) + "\\" + FileUtils.getFileNameWithoutExtension(filePath) + "."+templateFileName+".txt";
+		String templatePath = getFileFolder(filePath) + "\\" + DocumentUtils.getFileNameWithoutExtension(filePath) + "."+templateFileName+".txt";
 		
 		//Log.getInstance().write("Template path is:["+templatePath+"]");
 		
@@ -83,14 +83,14 @@ public class FileUtils {
 	
 	public static String getKeysMapFilePath(String filePath)
 	{
-		String keysMapPath = getFileFolder(filePath) + "\\" + FileUtils.getFileNameWithoutExtension(filePath) + "."+keysMapFileName+".txt";
+		String keysMapPath = getFileFolder(filePath) + "\\" + DocumentUtils.getFileNameWithoutExtension(filePath) + "."+keysMapFileName+".txt";
 		
 		return keysMapPath;
 	}
 	
 	public static String getValidationsFilePath(String filePath)
 	{
-		String validationFile = getFileFolder(filePath) + "\\" + FileUtils.getFileNameWithoutExtension(filePath) + "."+validationFileName+".txt";
+		String validationFile = getFileFolder(filePath) + "\\" + DocumentUtils.getFileNameWithoutExtension(filePath) + "."+validationFileName+".txt";
 		
     	return validationFile;
 	}

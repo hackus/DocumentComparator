@@ -1,4 +1,4 @@
-package document.comparator;
+package com.comparator;
 
 import static org.kohsuke.args4j.ExampleMode.ALL;
 
@@ -14,9 +14,10 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 
-import document.comparator.log.Log;
-import document.comparator.utils.Document;
-import document.comparator.utils.FileUtils;
+import com.comparator.actions.*;
+import com.comparator.document.DocumentControler;
+import com.comparator.document.DocumentUtils;
+import com.comparator.log.Log;
 
 
 /**
@@ -58,9 +59,9 @@ public class MainApp
 //					"-doc1", "example.pdf",
 //					"-map", "example.map.txt",
 //					"-tmpl", "example.template.txt"};  
-						
-			//args = new String[] { "-type", "generate_template",
-			//"-doc1", "example.pdf"};
+
+//			args = new String[] { "-type", "generate_template",
+//			"-doc1", "example.pdf"};
 			
 			 //-type template -doc1 example.pdf -tmpl example.template.txt -map example.map.txt
   		
@@ -105,41 +106,41 @@ public class MainApp
 		    else 
 		    {		    	
 		    	//System.out.println("4");
-		    	if((comparisonType.fromString(compareType).equals(comparisonType.byTemplate)		    			
+		    	if((ComparisonType.fromString(compareType).equals(ComparisonType.byTemplate)		    			
 		    		||
-		    		comparisonType.fromString(compareType).equals(comparisonType.genTemplate))
+		    		ComparisonType.fromString(compareType).equals(ComparisonType.genTemplate))
 		    			&& filePath1 == null)
 		    	{
 		    		//System.out.println("5");
 			    	throw new CmdLineException(parser,"-doc1 param is undefined.");
 		    	}
-		    	if(comparisonType.fromString(compareType).equals(comparisonType.byTemplate)
+		    	if(ComparisonType.fromString(compareType).equals(ComparisonType.byTemplate)
 		    			&& (templatePath == null))
 		    	{
 		    		//System.out.println("5");
 			    	throw new CmdLineException(parser,"-tmpl param is undefined.");
 		    	}
-		    	if(comparisonType.fromString(compareType).equals(comparisonType.byTemplate)
+		    	if(ComparisonType.fromString(compareType).equals(ComparisonType.byTemplate)
 		    			&& (keysMap == null))
 		    	{
 		    		//System.out.println("5");
 			    	throw new CmdLineException(parser,"-map param is undefined.");
 		    	}		    	
-			    if(comparisonType.fromString(compareType).equals(comparisonType.byTemplate) && filePath1 == null)
+			    if(ComparisonType.fromString(compareType).equals(ComparisonType.byTemplate) && filePath1 == null)
 			    {
 			    	//System.out.println("6");
 			    	throw new CmdLineException(parser,"-doc1 param is undefined.");
 			    }
-			    if((comparisonType.fromString(compareType).equals(comparisonType.byLines) 
+			    if((ComparisonType.fromString(compareType).equals(ComparisonType.byLines) 
 			    	||
-			    	comparisonType.fromString(compareType).equals(comparisonType.byPages))
+			    	ComparisonType.fromString(compareType).equals(ComparisonType.byPages))
 			    	&& 
 			    	(filePath1 == null || filePath2 == null))
 			    {
 			    	//System.out.println("7");
 			    	throw new CmdLineException(parser,"-doc1 and -doc2 should be defined.");
 			    }
-			    if(comparisonType.fromString(compareType).equals(comparisonType.byPages)
+			    if(ComparisonType.fromString(compareType).equals(ComparisonType.byPages)
 			    	&& 
 				 (pagesMap == null))
 			    {
@@ -154,7 +155,7 @@ public class MainApp
 			
 			Log.getInstance();
 			
-			switch(comparisonType.fromString(compareType))
+			switch(ComparisonType.fromString(compareType))
 			{
 				case byTemplate:
 				  
@@ -227,13 +228,13 @@ public class MainApp
 
 	public static void generateDocTemplate(String filePath)
 	{	
-		Document doc = new Document(filePath);
+		DocumentControler doc = new DocumentControler(filePath);
 
-		String templateName = FileUtils.getTemplateFilePath(filePath);//FileUtils.getFileNameWithoutExtension(filePath) + ".template.txt";
+		String templateName = DocumentUtils.getTemplateFilePath(filePath);//FileUtils.getFileNameWithoutExtension(filePath) + ".template.txt";
 
 		try {
 
-			doc.createValidationFile(templateName);
+			doc.getDocumentView().createValidationFile(templateName);
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -242,38 +243,36 @@ public class MainApp
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		doc.close();
 	}
 
-	public enum comparisonType {
-			byTemplate("template"),
-			byLines("lines"),
-			byPages("pages"),
-			genTemplate("generate_template");			
-
-			private String text;
-
-			comparisonType(String text) {
-				this.text = text;
-			}
-
-			public String getText() {
-				return this.text;
-			}
-
-			public static comparisonType fromString(String text) {			
-				if (text != null) 
-				{
-					for (comparisonType b : comparisonType.values()) 
-					{
-						if (text.equalsIgnoreCase(b.text)) 
-						{
-							return b;
-						}
-					}
-				}
-				return null;
-			}
-	}
+//	public enum ComparisonType {
+//			byTemplate("template"),
+//			byLines("lines"),
+//			byPages("pages"),
+//			genTemplate("generate_template");			
+//
+//			private String text;
+//
+//			ComparisonType(String text) {
+//				this.text = text;
+//			}
+//
+//			public String getText() {
+//				return this.text;
+//			}
+//
+//			public static ComparisonType fromString(String text) {			
+//				if (text != null) 
+//				{
+//					for (ComparisonType b : ComparisonType.values()) 
+//					{
+//						if (text.equalsIgnoreCase(b.text)) 
+//						{
+//							return b;
+//						}
+//					}
+//				}
+//				return null;
+//			}
+//	}
 }
