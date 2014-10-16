@@ -10,9 +10,9 @@ package com.comparator;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-public class TestRunnerTemplate {
+public class GenerateTemplateTestRunner {
 	public static void main(String[] args) {
-		Result result = JUnitCore.runClasses(TestTemplateNegative.class, TestTemplatePositive.class);
+		Result result = JUnitCore.runClasses(GenerateDOCXTemplateTest.class, GenerateTXTTemplateTest.class, GeneratePDFTemplateTest.class);
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString());
 		}

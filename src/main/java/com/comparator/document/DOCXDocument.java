@@ -31,10 +31,8 @@ public class DOCXDocument extends DocumentModel {
  
 			List<XWPFParagraph> paragraphs = document.getParagraphs();
 			
-			System.out.println("Total no of paragraph "+paragraphs.size());
-			for (XWPFParagraph para : paragraphs) {
-				pages.add(new DocumentPage(para.getText()));
-			}
+			//System.out.println("Total no of paragraph "+paragraphs.size());
+			pages.add(new DocumentPage(paragraphs));	
 			fis.close();
 		} catch (Exception e) {
 			e.printStackTrace();

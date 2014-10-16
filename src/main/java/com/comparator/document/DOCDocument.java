@@ -23,11 +23,9 @@ public class DOCDocument extends DocumentModel{
 			WordExtractor we = new WordExtractor(doc);
  
 			String[] paragraphs = we.getParagraphText();
+					
+			pages.add(new DocumentPage(paragraphs));			
 			
-			System.out.println("Total no of paragraph "+paragraphs.length);
-			for (String para : paragraphs) {
-				pages.add(new DocumentPage(para));
-			}
 			fis.close();
 		} catch (Exception e) {
 			e.printStackTrace();

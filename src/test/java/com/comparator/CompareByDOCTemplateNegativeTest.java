@@ -20,13 +20,13 @@ import com.comparator.document.DocumentPage;
  * @author misirghi
  *
  */
-public class TestTemplatePositive {
+public class CompareByDOCTemplateNegativeTest {
 	 @Test
-	 public void testTemplatePositive() throws IOException {		 
+	 public void test() throws IOException {		 
 		 String[] args = new String[] { "-type", "template",
-					"-doc1", "example.pdf",
-					"-map", "example.map.txt",
-					"-tmpl", "example.templatePositive.txt"};  
+					"-doc1", "forTest/test1doc.doc",
+					"-map", "forTest/test1doc.map.txt",
+					"-tmpl", "forTest/test1doc.templateNegative.txt"};  
 		 
 		 new MainApp().doMain(args);
 		
@@ -40,6 +40,6 @@ public class TestTemplatePositive {
 	 	 
 		 in.close();
 		 
-		 assertTrue(lines.size() == 0);
+		 assertTrue(lines.size() > 0);
 	 }
 }

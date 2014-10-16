@@ -20,16 +20,16 @@ import com.comparator.document.DocumentPage;
  * @author misirghi
  *
  */
-public class TestTemplateNegative {
+public class CompareByTXTTemplateNegativeTest {
 	 @Test
-	 public void testTemplateNegative() throws IOException {		 
+	 public void test() throws IOException {		 
 		 String[] args = new String[] { "-type", "template",
-					"-doc1", "example.pdf",
-					"-map", "example.map.txt",
-					"-tmpl", "example.templateNegative.txt"};  
+					"-doc1", "forTest/exampleTXT.txt",
+					"-map", "forTest/exampleTXT.map.txt",
+					"-tmpl", "forTest/exampleTXT.templateNegative.txt"};  
 		 
 		 new MainApp().doMain(args);
-		 
+		
 		 List<String> lines = new LinkedList<String>();
 		 BufferedReader in = new BufferedReader(new FileReader("ComparisonDetailsLog.txt"));
 		 String line = "";

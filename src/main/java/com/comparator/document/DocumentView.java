@@ -70,25 +70,38 @@ public class DocumentView {
 		return lines;
 	}
 	
-	public void createValidationFile(String templatepath) throws FileNotFoundException, UnsupportedEncodingException
+	public void createValidationFile(String filePath) throws FileNotFoundException, UnsupportedEncodingException
 	{
-		DocumentWritter template = new DocumentWritter(templatepath);
+		DocumentWritter template = new DocumentWritter(filePath);
 		
 		template.write("***********************TemplateFile***********************");
 		
 		template.write("");
 		
-		for(int i = 0; i<document.pages.size();i++)
-		{	
-			template.write("->Page["+(i+1)+"]<-");
-			
-			List<String> lines = document.pages.get(i).getLines(); 
+		if(document instanceof DOCDocument || document instanceof DOCXDocument || document instanceof TXTDocument)
+		{			
+			List<String> lines = document.getAllLines(); 
 			
 			for(int j = 0; j < lines.size(); j++)
 			{
-				template.write("->Page["+(i+1)+"]Line["+(j+1)+"]:["+lines.get(j)+"]");				
+				template.write("->paragraph["+(j+1)+"]:["+lines.get(j)+"]");				
 			}
 			template.write("___________________________________________________________________________________________________________________");
+		}
+		else
+		{
+			for(int i = 0; i<document.pages.size();i++)
+			{	
+				template.write("->Page["+(i+1)+"]<-");
+				
+				List<String> lines = document.pages.get(i).getLines(); 
+				
+				for(int j = 0; j < lines.size(); j++)
+				{
+					template.write("->Page["+(i+1)+"]Line["+(j+1)+"]:["+lines.get(j)+"]");				
+				}
+				template.write("___________________________________________________________________________________________________________________");
+			}
 		}
 		template.close();
 	}

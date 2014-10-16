@@ -43,8 +43,6 @@ public class DocumentUtils {
     	
     	String[] tokens = fileNameAux.split("\\.(?=[^\\.]+$)");
     	
-    	//String validationFile = tokens[0] + ".validation.txt";
-		
 		return tokens[0];
 	}
 	
@@ -58,14 +56,7 @@ public class DocumentUtils {
 	
 	public static String getFileFolder(String fileName)
 	{
-//		String filePath = "";
-//		try {
-//			filePath = new File(".").getCanonicalPath();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
+
 		File file = new File(fileName);
 		String dirPath = file.getAbsoluteFile().getParentFile().getAbsolutePath();
 		
@@ -75,8 +66,6 @@ public class DocumentUtils {
 	public static String getTemplateFilePath(String filePath)
 	{
 		String templatePath = getFileFolder(filePath) + "\\" + DocumentUtils.getFileNameWithoutExtension(filePath) + "."+templateFileName+".txt";
-		
-		//Log.getInstance().write("Template path is:["+templatePath+"]");
 		
 		return templatePath;
 	}	
@@ -94,48 +83,6 @@ public class DocumentUtils {
 		
     	return validationFile;
 	}
-	
-//	public static List<String> fileToLines(String filePath)
-//	{
-//		List<String> lines = new LinkedList<String>();
-//		
-//		String extension = filePath.replaceAll("^.*\\.(.*)$", "$1");
-//        
-//        switch(fileType.fromString(extension))
-//        {
-//        	case pdf: 
-//        		try {
-//            		PDDocument pdDoc = PDDocument.load(filePath);
-//        			PDFTextStripper stripper = new PDFTextStripper();	
-//    				stripper.setStartPage( 1 );
-//    				stripper.setEndPage(Integer.MAX_VALUE);
-//    				String x1= stripper.getText(pdDoc);
-//    				
-//    				lines = Arrays.asList(x1.split("\r\n"));				
-//    				pdDoc.close();
-//    			} catch (IOException e) {
-//    				
-//    				e.printStackTrace();
-//    			}
-//        		break;
-//        	case txt:        				
-//        		String line = "";
-//        		try {
-//        			BufferedReader in = new BufferedReader(new FileReader(filePath));
-//        			while ((line = in.readLine()) != null) {
-//        				lines.add(line);
-//        			}
-//        		} catch (IOException e) {
-//        			e.printStackTrace();
-//        		}
-//        	case doc: 
-//        		throw new NotImplementedException("TODO doc reader");
-//        	case docx:
-//        		throw new NotImplementedException("TODO docx reader");
-//        }
-//        
-//        return lines;
-//	}
 
 	public enum fileType {
 		pdf("pdf"),

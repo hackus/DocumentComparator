@@ -1,0 +1,4 @@
+[ChangeDelta, position: 24, lines:
+ [->paragraph[23]:[Line 4     ]] 
+to
+ [->paragraph[23]:[Line 4]]]
