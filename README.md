@@ -11,9 +11,9 @@ Description:
 	stable between releases. 
 
 Supported file extensions:
-	PDF
-	DOC
-	DOCX
+	PDF,
+	DOC,
+	DOCX,
 	TXT
 
 How to:
@@ -22,94 +22,94 @@ Make sure you have jre(from 1.5 and above) installed.
 
 Windows:
 
-	1. Generate the template 
-	 
-		a) Edit the following line from "generateTemplate.vbs" with the actual file name: 
+1. Generate the template 
+ 
+	a) Edit the following line from "generateTemplate.vbs" with the actual file name: 
+	
+		Dim filename : filename = "<fileName>.pdf"
+	b) Execute "generateTemplate.vbs", it will automatically generate the 
+	 "<fileName>.template.txt" file with the text content from the pdf file.
+	
+2. Create the map file
+		 
+	a) Create the <fileName>.map.txt
+	
+	b) Define keys for each dinamically changed string values from the pdf file. 
+			-dinamically changed values are those that vary in different versions
+			 of the "<fileName>.pdf" file.
 		
-			Dim filename : filename = "<fileName>.pdf"
-		b) Execute "generateTemplate.vbs", it will automatically generate the 
-		 "<fileName>.template.txt" file with the text content from the pdf file.
-		
-	2. Create the map file
-			 
-		a) Create the <fileName>.map.txt
-		
-	 	b) Define keys for each dinamically changed string values from the pdf file. 
-				-dinamically changed values are those that vary in different versions
-				 of the "<fileName>.pdf" file.
+			for example company name, dates, any other identifiable changeable
+			elements that may appear
 			
-				for example company name, dates, any other identifiable changeable
-				elements that may appear
-				
-				replace the changeable values inside the "<fileName>.template.txt"
-				file with the related keys
-				
-		Example of map file: 
-			<key_CompanyName>:_:ENTCS
-			<key_MyUserName>:_:myuserid@mydept.myinst.myedu
-			<key_CoUserName>:_:couserid@codept.coinst.coedu							
-										
-	4. When the map file is ready and the values in the template file are replaced with the
-	 keys the tool is ready to validate any documents of the same type.   
-			 
-	5. Compare files
-		
-		a) Edit the following lines from "compareByTemplate.vbs" with the actual file 
-		name of the fail to be compared and the file names for the map and template file.  
+			replace the changeable values inside the "<fileName>.template.txt"
+			file with the related keys
 			
-			Dim fileName : fileName = "<fileToCompareWith>.pdf"
-			Dim templateName : templateName = "<fileName>.template.txt"
-			Dim mapName : mapName = "<fileName>.map.txt"
-			
+	Example of map file: 
+		<key_CompanyName>:_:ENTCS
+		<key_MyUserName>:_:myuserid@mydept.myinst.myedu
+		<key_CoUserName>:_:couserid@codept.coinst.coedu							
+									
+4. When the map file is ready and the values in the template file are replaced with the
+ keys the tool is ready to validate any documents of the same type.   
+		 
+5. Compare files
+	
+	a) Edit the following lines from "compareByTemplate.vbs" with the actual file 
+	name of the fail to be compared and the file names for the map and template file.  
 		
-		b) execute "compareByTemplate.vbs", it will automatically display a message box
-		 with the differences or "No data found!" if the files are identical.
+		Dim fileName : fileName = "<fileToCompareWith>.pdf"
+		Dim templateName : templateName = "<fileName>.template.txt"
+		Dim mapName : mapName = "<fileName>.map.txt"
 		
-		Note: the differences would be available in: "ComparisonDetailsLog.txt"	
-			
+	
+	b) execute "compareByTemplate.vbs", it will automatically display a message box
+	 with the differences or "No data found!" if the files are identical.
+	
+	Note: the differences would be available in: "ComparisonDetailsLog.txt"	
+		
 Console: 
+
+1. Generate the template 
+
+	a) Edit the <filename> in the command below and execute it cmd: 
 	
-	1. Generate the template 
+		java -cp Comparator-0.0.1-jar-with-dependencies.jar document.comparator.MainApp -type generate_template -doc1 <fileName>.pdf
+		
+	b) Execute the command in cmd, it will automatically generate the
+	 "<fileName>.template.txt" file with the text content from the pdf file.
 	
-		a) Edit the <filename> in the command below and execute it cmd: 
+2. Create the map file
+		 
+	a) Create the <fileName>.map.txt
+	
+	b) Define keys for each dynamically changed string values from the pdf file. 
+			-dynamically changed values are those that vary in different versions
+			 of the "<fileName>.pdf" file.
 		
-			java -cp Comparator-0.0.1-jar-with-dependencies.jar document.comparator.MainApp -type generate_template -doc1 <fileName>.pdf
+			for example company name, dates, any other identifiable changeable
+			 elements that may appear
 			
-		b) Execute the command in cmd, it will automatically generate the
-		 "<fileName>.template.txt" file with the text content from the pdf file.
-		
-	2. Create the map file
-			 
-		a) Create the <fileName>.map.txt
-		
-	 	b) Define keys for each dynamically changed string values from the pdf file. 
-				-dynamically changed values are those that vary in different versions
-				 of the "<fileName>.pdf" file.
+			replace the changeable values inside the "<fileName>.template.txt" file
+			 with the related keys
 			
-				for example company name, dates, any other identifiable changeable
-				 elements that may appear
-				
-				replace the changeable values inside the "<fileName>.template.txt" file
-				 with the related keys
-				
-		Example of map file: 
-			
-			
-			<key_CompanyName>:_:ENTCS
-			<key_MyUserName>:_:myuserid@mydept.myinst.myedu
-			<key_CoUserName>:_:couserid@codept.coinst.coedu
-										
-										
-	4. When the map file is ready and the values in the template file are replaced
-	 with the keys the tool is ready to validate any documents of the same type.   
-			 
-	5. Compare files
+	Example of map file: 
 		
-		a) Edit the <fileToCompareWith> and the <fileName> in the command below:
-			
-			java -cp Comparator-0.0.1-jar-with-dependencies.jar document.comparator.MainApp -type template -doc1 <fileToCompareWith>.pdf -tmpl <fileName>.template.txt -map <fileName>.map.txt
 		
-		b) execute "compareByTemplate.vbs", it will automatically display a message
-		 box with the differences or "No data found!" if the files are identical.
+		<key_CompanyName>:_:ENTCS
+		<key_MyUserName>:_:myuserid@mydept.myinst.myedu
+		<key_CoUserName>:_:couserid@codept.coinst.coedu
+									
+									
+4. When the map file is ready and the values in the template file are replaced
+ with the keys the tool is ready to validate any documents of the same type.   
+		 
+5. Compare files
+	
+	a) Edit the <fileToCompareWith> and the <fileName> in the command below:
 		
-		Note: the differences would be available in: "ComparisonDetailsLog.txt"
+		java -cp Comparator-0.0.1-jar-with-dependencies.jar document.comparator.MainApp -type template -doc1 <fileToCompareWith>.pdf -tmpl <fileName>.template.txt -map <fileName>.map.txt
+	
+	b) execute "compareByTemplate.vbs", it will automatically display a message
+	 box with the differences or "No data found!" if the files are identical.
+	
+	Note: the differences would be available in: "ComparisonDetailsLog.txt"
