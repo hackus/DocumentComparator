@@ -94,5 +94,6 @@ public class Log {
 	public void close()
 	{
 		writer.close();
+		Log.instance = null;
 	}
 }
