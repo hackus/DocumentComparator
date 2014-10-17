@@ -5,12 +5,14 @@ Contact details:<br>
 mail: hakkuss@yahoo.com<br>
 <a href="http://www.linkedin.com/pub/mircea-sirghi/32/6b5/700/" target="_blank">Find me on linkedin.</a>
 
-Description: 
+Description:
+
 	This tool is able to find differences between different versions of the same document based on the mapping file that can be automatically edited. 
 	It is useful when testing an application that generates files like contracts and one might be interested that the file generation process remains
 	stable between releases. 
 
 Supported file extensions:
+
 	PDF,
 	DOC,
 	DOCX,
@@ -18,7 +20,7 @@ Supported file extensions:
 
 How to:
 
-Make sure you have jre(from 1.5 and above) installed.
+Make sure you have JDK(from 1.5 and above) installed.
 
 Windows:
 
@@ -94,10 +96,13 @@ Console:
 			
 	Example of map file: 
 		
-		
-		<key_CompanyName>:_:ENTCS
-		<key_MyUserName>:_:myuserid@mydept.myinst.myedu
-		<key_CoUserName>:_:couserid@codept.coinst.coedu
+		<pre>
+			<code>
+				<key_CompanyName>:_:ENTCS
+				<key_MyUserName>:_:myuserid@mydept.myinst.myedu
+				<key_CoUserName>:_:couserid@codept.coinst.coedu
+			</code>
+		</pre>
 									
 									
 4. When the map file is ready and the values in the template file are replaced
