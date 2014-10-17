@@ -7,9 +7,10 @@ mail: hakkuss@yahoo.com<br>
 
 Description:
 
-	This tool is able to find differences between different versions of the same document based on the mapping file that can be automatically edited. 
-	It is useful when testing an application that generates files like contracts and one might be interested that the file generation process remains
-	stable between releases. 
+	This tool is able to find differences between different versions of the same document
+	based on the mapping file that can be automatically edited. It is useful when testing
+	an application that generates files like contracts and one might be interested that
+	the file generation process remains	stable between releases. 
 
 Supported file extensions:
 
