@@ -49,11 +49,11 @@ Windows:
 			
 	Example of map file: 
 
-<pre>
-<key_CompanyName>:_:ENTCS
-<key_MyUserName>:_:myuserid@mydept.myinst.myedu
-<key_CoUserName>:_:couserid@codept.coinst.coedu
-</pre>
+
+		<key_CompanyName>:_:ENTCS
+		<key_MyUserName>:_:myuserid@mydept.myinst.myedu
+		<key_CoUserName>:_:couserid@codept.coinst.coedu
+
 
 									
 4. When the map file is ready and the values in the template file are replaced with the
