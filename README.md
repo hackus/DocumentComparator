@@ -49,10 +49,11 @@ Windows:
 			
 	Example of map file: 
 <pre>
-<code>
+<code>"
 				<key_CompanyName>:_:ENTCS
 				<key_MyUserName>:_:myuserid@mydept.myinst.myedu
 				<key_CoUserName>:_:couserid@codept.coinst.coedu
+	  "			
 </code>
 </pre>							
 									
