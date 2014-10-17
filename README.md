@@ -98,17 +98,6 @@ Console:
 			
 			replace the changeable values inside the "<fileName>.template.txt" file
 			 with the related keys
-			
-	Example of map file: 
-		
-		<pre>
-			<code>
-				<key_CompanyName>:_:ENTCS
-				<key_MyUserName>:_:myuserid@mydept.myinst.myedu
-				<key_CoUserName>:_:couserid@codept.coinst.coedu
-			</code>
-		</pre>
-									
 									
 4. When the map file is ready and the values in the template file are replaced
  with the keys the tool is ready to validate any documents of the same type.   
